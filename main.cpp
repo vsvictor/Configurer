@@ -24,12 +24,12 @@ int main() {
             if(foundVSVersion != std::string::npos && foundMinVersion == std::string::npos)
             {
                 std::vector<std::string> vec = split(str, '=');
-                if(vec.size() > 2)sol.setVisualStudioVersion(vec[1]);
+                if(vec.size() >= 2)sol.setVisualStudioVersion(vec[1]);
             }
             if(foundMinVersion != std::string::npos)
             {
                 std::vector<std::string> vec = split(str, '=');
-                sol.setMinimumVisualStudioVersion(vec[1]);
+                if(vec.size() >= 2)sol.setMinimumVisualStudioVersion(vec[1]);
             }
 
         }
