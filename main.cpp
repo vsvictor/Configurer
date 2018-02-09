@@ -16,7 +16,7 @@ int main() {
         std::string str;
         while(getline(fileSolution, str, '\n'))
         {
-            std::cout<<str<<std::endl;
+            //std::cout<<str<<std::endl;
 
             std::size_t foundVSVersion = str.find("VisualStudioVersion");
             std::size_t foundMinVersion = str.find("MinimumVisualStudioVersion");
@@ -37,5 +37,6 @@ int main() {
     else std::cout << "File solution not found"<<std::endl;
     fileSolution.close();
     if(!fileSolution.is_open()) std::cout << "File solution is closed" << std::endl;
+    std::cout<<sol<<std::endl;
     return 0;
 }

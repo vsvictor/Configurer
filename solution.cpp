@@ -14,7 +14,7 @@ Solution::~Solution()
 
 void Solution::setVisualStudioVersion(std::string version)
 {
-    VisualStudioVersion = version;
+    VisualStudioVersion = std::string(version);
 }
 std::string Solution::getVisualStudioVersion()
 {
@@ -23,7 +23,7 @@ std::string Solution::getVisualStudioVersion()
 
 void Solution::setMinimumVisualStudioVersion(std::string version)
 {
-    MinimumVisualStudioVersion = version;
+    MinimumVisualStudioVersion = std::string(version);
 }
 std::string Solution::getMinimumVisualStudioVersion()
 {

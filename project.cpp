@@ -46,6 +46,6 @@ const std::string& Project::getFileName()const
 
 std::ostream& operator<<(std::ostream& os, const Project& p)
 {
-    os<<p.getID()<<" "<<p.getType()<<" "<<p.getName()<<" "<<p.getFileName();
+    os<<p.getID()<<std::string(" ")<<p.getType()<<std::string(" ")<<p.getName()<<std::string(" ")<<p.getFileName();
     return os;
 }
