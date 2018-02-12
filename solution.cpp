@@ -33,6 +33,11 @@ void Solution::addProject(Project project) {
     projects.push_back(project);
 }
 
+void Solution::addOther(std::string str)
+{
+    other.push_back(str);
+}
+
 const Project& Solution::getProject(int i)
 {
     return projects[i];
@@ -45,5 +50,14 @@ std::ostream& operator<<(std::ostream& os, Solution& s)
     {
         os<< s.getProject(i) << std::endl;
     }
+    for(int i = 0; i<s.other.size();i++)
+    {
+        os<<s.other[i]<<std::endl;
+    }
     return os;
+}
+
+std::vector<Project> Solution::getProjects()
+{
+    return projects;
 }
