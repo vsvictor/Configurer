@@ -9,8 +9,7 @@
 
 #include "pugixml.hpp"
 
-#include <boost/filesystem.hpp>
-
+namespace fs = std::experimental::filesystem;
 
 Solution parseSolution(std::string nameSolution) {
     Solution sol;
@@ -58,8 +57,10 @@ Solution parseSolution(std::string nameSolution) {
 
 int main() {
     Solution solution = parseSolution(PREFIX + "\\" + SOLUTION);
-    std::cout << solution << std::endl;
-
+    //std::cout << solution << std::endl;
+    fs::path aPath{"C:\\Hornet_phase6\\Media\\mi"};
+    fs::current_path(aPath);
+    std::cout<<fs::current_path()<<std::endl;
     for (int i = 0; i < solution.getProjects().size(); i++) {
         std::string pName = std::string(solution.getProject(i).getName());
         if (pName == std::string("base")) {
@@ -91,7 +92,7 @@ int main() {
                             std::string sAtt = std::string(atInclude.value());
                             if (sAtt.find(CONFIG_NAME) != std::string::npos) {
                                 nIG.append_copy(*itIG);
-                                std::cout << itIG->name() << sAtt << std::endl;
+                                std::cout << itIG->name() << ":" << sAtt << std::endl;
                             }
                         } else if (std::string(itIG->name()) == std::string("ClInclude")) {
                             nIG.append_copy(*itIG);
@@ -102,7 +103,6 @@ int main() {
                 }
                 itRoot++;
             } while (itRoot != root.end());
-            boost::filesystem::path full_path(boost::filesystem::current_path());
             //new_root.save_file((p.getFileName() + ".new").c_str(), "    ", pugi::format_default, pugi::encoding_utf8);
         }
     }
